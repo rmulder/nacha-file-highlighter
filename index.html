@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body ng-app="app">
+
+<div class="" ng-controller="cntrl">
+    <div class="col-md-12">
+        <h3>Enter NACHA file</h3>
+        <textarea ng-model='input' class="form-control" id="content" rows="3"></textarea>
+    </div>
+
+    <div class="col-md-12">
+        <h3>Output</h3>
+        <h4>Hovered cell info:</h4>
+        <dl>
+            <dd>Type: <span ng-bind="hoveredCell.rowType"></span></dd>
+            <dd>Name: <span ng-bind="hoveredCell.info.name"></span></dd>
+            <dd>Size: <span ng-bind="hoveredCell.info.size"></span></dd>
+            <dd>Format: <span ng-bind="hoveredCell.info.format"></span></dd>
+        </dl>
+
+        <table class="table table-bordered">
+            <tr>
+                <td></td>
+                <td ng-repeat="c in rows[rows.length-1].data track by $index" ng-bind="$index+1"></td>
+            </tr>
+            <tr ng-repeat="row in rows track by $index">
+                <td ng-bind="$index+1"></td>
+                <td
+                        ng-repeat="cell in row.data track by $index"
+                        ng-style='{"background-color": cell.color}'
+                        ng-bind="cell.value"
+                        ng-mouseover="onMouseOver(cell)"
+                        title="{{cell.info.name}}"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script src="js/records.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
