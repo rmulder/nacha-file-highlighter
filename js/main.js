@@ -1,6 +1,6 @@
 angular.module('app', [])
     .controller('cntrl', function ($scope, RowReader) {
-        $scope.input = tempdata;
+        $scope.input = '';
         $scope.hoveredCell = {};
 
         $scope.$watch('input', function(){
