@@ -311,9 +311,9 @@ var records = {
             "default": ""
         }
     ],
-    '9row': [
+    'FillerRow': [
         {
-            'name': 'filling with 9',
+            'name': 'filler row',
             'size': 94
         }
     ]
@@ -328,7 +328,7 @@ var rowTypes = {
 };
 
 var recordsNamesColors = {
-    "filling with 9": "#fae9d7",
+    "filler row": "#fae9d7",
     "type": "#faebd7",
     "priorityCode": "#eee8aa",
     "immediateDestination": "#rgba(139, 0, 0, 0.56);",

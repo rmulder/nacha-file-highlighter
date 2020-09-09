@@ -22,13 +22,13 @@ angular.module('app', [])
                 var rowChars = row.split('');
                 var cells = [];
 
-                var rowType = '9row';
+                var rowType = 'FillerRow';
                 if (row != ninesRow){
                     var firstChat = rowChars[0];
                     rowType = rowTypes[firstChat];
                 }
-                var metadata = records[rowType];
 
+                var metadata = records[rowType];
                 metadata.forEach(function (metaItem) {
                     var spliced = rowChars.splice(0, metaItem.size);
                     spliced.forEach(function (spl) {
@@ -46,6 +46,7 @@ angular.module('app', [])
                     data: cells
                 });
             });
+
             return output;
         }
     });
